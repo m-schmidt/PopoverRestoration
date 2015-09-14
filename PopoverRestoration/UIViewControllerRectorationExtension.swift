@@ -41,7 +41,7 @@ extension UIViewController {
 
                     if let pc = presentationController as? UIPopoverPresentationController {
 
-                        // Use content view of presenting controller as sourceView/sourceRect
+                        // Restore sourceView and sourceRect
                         pc.sourceView = sourceView
                         pc.sourceRect = sourceRectData.CGRectValue()
 
