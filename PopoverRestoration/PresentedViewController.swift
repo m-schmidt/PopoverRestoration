@@ -2,18 +2,10 @@ import UIKit
 
 class PresentedViewController: UIViewController {
 
-    override func encodeRestorableStateWithCoder(coder: NSCoder) {
+    override func viewDidLoad() {
 
-        // Call extension to store data for popover restoration
-        encodePopoverStateWithCoder(coder)
-        super.encodeRestorableStateWithCoder(coder)
-    }
-
-    override func decodeRestorableStateWithCoder(coder: NSCoder) {
-
-        // Call extension to restore data for popover restoration (must be done before call to super)
-        decodePopoverStateWithCoder(coder)
-        super.decodeRestorableStateWithCoder(coder)
+        // Define the title for the navigation controller
+        title = "Presented ViewController"
     }
 }
 

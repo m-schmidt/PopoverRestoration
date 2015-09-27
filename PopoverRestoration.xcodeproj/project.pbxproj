@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D393F171BA7448D00A8A603 /* UIViewControllerRectorationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D393F161BA7448D00A8A603 /* UIViewControllerRectorationExtension.swift */; settings = {ASSET_TAGS = (); }; };
+		4D8535061BB82DEE00CD063A /* PresentedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8535051BB82DEE00CD063A /* PresentedNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
 		4D9F8D021BA59AE5006264F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F8D011BA59AE5006264F2 /* AppDelegate.swift */; };
 		4D9F8D041BA59AE5006264F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F8D031BA59AE5006264F2 /* ViewController.swift */; };
 		4D9F8D071BA59AE5006264F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9F8D051BA59AE5006264F2 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		4D393F161BA7448D00A8A603 /* UIViewControllerRectorationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerRectorationExtension.swift; sourceTree = "<group>"; };
+		4D8535051BB82DEE00CD063A /* PresentedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedNavigationController.swift; sourceTree = "<group>"; };
 		4D9F8CFE1BA59AE5006264F2 /* PopoverRestoration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopoverRestoration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9F8D011BA59AE5006264F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D9F8D031BA59AE5006264F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				4D9F8D011BA59AE5006264F2 /* AppDelegate.swift */,
 				4D9F8D031BA59AE5006264F2 /* ViewController.swift */,
 				4D9F8D141BA59D21006264F2 /* PresentedViewController.swift */,
+				4D8535051BB82DEE00CD063A /* PresentedNavigationController.swift */,
 				4D393F161BA7448D00A8A603 /* UIViewControllerRectorationExtension.swift */,
 				4D9F8D131BA59D0C006264F2 /* Resources */,
 			);
@@ -150,6 +153,7 @@
 			files = (
 				4D9F8D041BA59AE5006264F2 /* ViewController.swift in Sources */,
 				4D393F171BA7448D00A8A603 /* UIViewControllerRectorationExtension.swift in Sources */,
+				4D8535061BB82DEE00CD063A /* PresentedNavigationController.swift in Sources */,
 				4D9F8D021BA59AE5006264F2 /* AppDelegate.swift in Sources */,
 				4D9F8D151BA59D21006264F2 /* PresentedViewController.swift in Sources */,
 			);
