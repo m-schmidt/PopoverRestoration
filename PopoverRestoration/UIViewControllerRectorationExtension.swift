@@ -7,6 +7,7 @@ import UIKit
 private let keySourceViewController = "popoverRestorationSourceViewController"
 private let keySourceView = "popoverRestorationSourceView"
 private let keySourceRect = "popoverRestorationSourceRect"
+private let keyArrowDirections = "popoverRestorationPermittedArrowDirections"
 
 extension UIViewController {
 
@@ -23,6 +24,11 @@ extension UIViewController {
                 assert(sourceView.restorationIdentifier != nil)
                 coder.encodeObject(sourceView, forKey:keySourceView)
                 coder.encodeObject(NSValue(CGRect: pc.sourceRect), forKey:keySourceRect)
+
+                // Store arrow direction if not unknown
+                if pc.permittedArrowDirections != .Unknown {
+                    coder.encodeInteger(Int(pc.permittedArrowDirections.rawValue), forKey:keyArrowDirections)
+                }
             }
         }
     }
@@ -44,6 +50,11 @@ extension UIViewController {
                         // Restore sourceView and sourceRect
                         pc.sourceView = sourceView
                         pc.sourceRect = sourceRectData.CGRectValue()
+
+                        // Restore arrow direction
+                        if coder.containsValueForKey(keyArrowDirections) {
+                            pc.permittedArrowDirections = UIPopoverArrowDirection(rawValue: UInt(coder.decodeIntegerForKey(keyArrowDirections)))
+                        }
 
                         // Enforce layout to place sourceView at correct location
                         sourceViewController.view.layoutIfNeeded()
