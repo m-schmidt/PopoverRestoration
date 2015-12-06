@@ -23,12 +23,12 @@ class PresentedNavigationController: UINavigationController {
         super.viewWillAppear(animated)
 
         if let presenter = self.presentingViewController {
-            updateDoneButtonStateForTraits(presenter.traitCollection)
+            updateNavigationItemsForTraits(presenter.traitCollection)
         }
     }
 
-    // Add or remove a Done-button as right Navigation item
-    func updateDoneButtonStateForTraits(traits: UITraitCollection) {
+    // Add or remove a Done-button as right navigation item
+    func updateNavigationItemsForTraits(traits: UITraitCollection) {
 
         switch traits.horizontalSizeClass {
 
@@ -44,7 +44,7 @@ class PresentedNavigationController: UINavigationController {
         }
     }
 
-    // Handler for Done-button dismisses the navigation controller
+    // Handler for Done-button to dismiss the navigation controller
     func dismissNavigationController(sender: AnyObject?) {
 
         if let presenter = self.presentingViewController {

@@ -19,7 +19,7 @@ class ViewController: UIViewController, PopoverRestorationDelegate {
 
             // Update the Done-button state of a presented navigation controller
             if let nc = segue.destinationViewController as? PresentedNavigationController {
-                nc.updateDoneButtonStateForTraits(self.traitCollection);
+                nc.updateNavigationItemsForTraits(self.traitCollection);
             }
         }
     }
@@ -29,7 +29,7 @@ class ViewController: UIViewController, PopoverRestorationDelegate {
         super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
 
         if let nc = presentedViewController as? PresentedNavigationController {
-            nc.updateDoneButtonStateForTraits(newCollection);
+            nc.updateNavigationItemsForTraits(newCollection);
         }
     }
 
