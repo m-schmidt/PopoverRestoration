@@ -15,5 +15,41 @@ class PresentedNavigationController: UINavigationController {
         decodePopoverStateWithCoder(coder)
         super.decodeRestorableStateWithCoder(coder)
     }
+
+
+    // When the navigation controller appears, update its Done-button
+    override func viewWillAppear(animated: Bool) {
+
+        super.viewWillAppear(animated)
+
+        if let presenter = self.presentingViewController {
+            updateDoneButtonStateForTraits(presenter.traitCollection)
+        }
+    }
+
+    // Add or remove a Done-button as right Navigation item
+    func updateDoneButtonStateForTraits(traits: UITraitCollection) {
+
+        switch traits.horizontalSizeClass {
+
+        case .Regular:
+             self.topViewController?.navigationItem.rightBarButtonItem = nil
+
+        case .Compact:
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismissNavigationController:")
+            self.topViewController?.navigationItem.rightBarButtonItem = doneButton
+
+        default:
+            break
+        }
+    }
+
+    // Handler for Done-button dismisses the navigation controller
+    func dismissNavigationController(sender: AnyObject?) {
+
+        if let presenter = self.presentingViewController {
+            presenter.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
 }
 
