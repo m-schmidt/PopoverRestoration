@@ -45,12 +45,12 @@ extension UIViewController {
             if let sourceView = pc.popoverSourceView() {
 
                 // Store a reference to the presenting view controller
-                coder.encodeObject(presentingViewController, forKey:keySourceViewController)
+                coder.encodeObject(presentingViewController, forKey: keySourceViewController)
 
                 // Store configuration of the popoverPresentationController
                 coder.encodeObject(sourceView, forKey:keySourceView)
-                coder.encodeObject(NSValue(CGRect: pc.popoverSourceRect()), forKey:keySourceRect)
-                coder.encodeInteger(Int(pc.popoverArrowDirection().rawValue), forKey:keyArrowDirections)
+                coder.encodeObject(NSValue(CGRect: pc.popoverSourceRect()), forKey: keySourceRect)
+                coder.encodeInteger(Int(pc.popoverArrowDirection().rawValue), forKey: keyArrowDirections)
             }
         }
     }
