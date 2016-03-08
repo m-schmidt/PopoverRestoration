@@ -8,6 +8,3 @@ class PresentedViewController: UIViewController {
         title = "Presented ViewController"
     }
 }
-
-
-

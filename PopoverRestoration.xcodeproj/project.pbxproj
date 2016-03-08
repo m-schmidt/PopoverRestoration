@@ -91,6 +91,7 @@
 				4D9F8CFA1BA59AE5006264F2 /* Sources */,
 				4D9F8CFB1BA59AE5006264F2 /* Frameworks */,
 				4D9F8CFC1BA59AE5006264F2 /* Resources */,
+				4D3233161C8F511600251375 /* Warnings for FIXME and TODO */,
 			);
 			buildRules = (
 			);
@@ -146,6 +147,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D3233161C8F511600251375 /* Warnings for FIXME and TODO */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Warnings for FIXME and TODO";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO|FIXME|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D9F8CFA1BA59AE5006264F2 /* Sources */ = {
