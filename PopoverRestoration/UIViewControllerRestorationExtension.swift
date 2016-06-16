@@ -21,11 +21,11 @@ protocol PopoverRestorationDelegate : UIPopoverPresentationControllerDelegate {
 extension PopoverRestorationDelegate {
 
     func popoverSourceRect() -> CGRect {
-        return popoverSourceView()?.bounds ?? CGRectZero
+        return popoverSourceView()?.bounds ?? CGRect.zero
     }
 
     func popoverArrowDirection() -> UIPopoverArrowDirection {
-        return .Any
+        return .any
     }
 }
 
@@ -39,33 +39,33 @@ private let keyArrowDirections = "popoverRestorationPermittedArrowDirections"
 
 extension UIViewController {
 
-    func encodePopoverStateWithCoder(coder: NSCoder) {
+    func encodePopoverStateWithCoder(_ coder: NSCoder) {
 
         if let pc = presentingViewController as? PopoverRestorationDelegate {
             if let sourceView = pc.popoverSourceView() {
 
                 // Store a reference to the presenting view controller
-                coder.encodeObject(presentingViewController, forKey: keySourceViewController)
+                coder.encode(presentingViewController, forKey: keySourceViewController)
 
                 // Store configuration of the popoverPresentationController
-                coder.encodeObject(sourceView, forKey:keySourceView)
-                coder.encodeObject(NSValue(CGRect: pc.popoverSourceRect()), forKey: keySourceRect)
-                coder.encodeInteger(Int(pc.popoverArrowDirection().rawValue), forKey: keyArrowDirections)
+                coder.encode(sourceView, forKey:keySourceView)
+                coder.encode(NSValue(cgRect: pc.popoverSourceRect()), forKey: keySourceRect)
+                coder.encode(Int(pc.popoverArrowDirection().rawValue), forKey: keyArrowDirections)
             }
         }
     }
 
 
-    func decodePopoverStateWithCoder(coder: NSCoder) {
+    func decodePopoverStateWithCoder(_ coder: NSCoder) {
 
-        if let sourceViewController = coder.decodeObjectForKey(keySourceViewController) as? PopoverRestorationDelegate {
+        if let sourceViewController = coder.decodeObject(forKey: keySourceViewController) as? PopoverRestorationDelegate {
             if let sourceView = sourceViewController.popoverSourceView() {
 
                 // Original style as from storyboard
                 let originalModalPresentationStyle = modalPresentationStyle
 
                 // Switch to popover-style and access presentationController to trigger creation of a UIPopoverPresentationController
-                modalPresentationStyle = .Popover
+                modalPresentationStyle = .popover
 
                 if let pc = presentationController as? UIPopoverPresentationController {
 

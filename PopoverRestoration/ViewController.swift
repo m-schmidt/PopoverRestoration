@@ -7,7 +7,7 @@ class ViewController: UIViewController, PopoverRestorationDelegate {
 
 
     // Catch segues to the popover
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == "popoverSegue" {
 
@@ -25,8 +25,8 @@ class ViewController: UIViewController, PopoverRestorationDelegate {
     }
 
     // When the traits change, update the Done-button state of a presented navigation controller
-    override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
 
         if let nc = presentedViewController as? PresentedNavigationController {
             nc.updateNavigationItemsForTraits(newCollection);

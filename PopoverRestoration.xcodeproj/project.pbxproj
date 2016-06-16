@@ -108,12 +108,13 @@
 		4D9F8CF61BA59AE5006264F2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Michael Schmidt";
 				TargetAttributes = {
 					4D9F8CFD1BA59AE5006264F2 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = V3YNQKY4J7;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -294,6 +295,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.mschmidt.PopoverRestoration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -308,6 +310,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.mschmidt.PopoverRestoration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

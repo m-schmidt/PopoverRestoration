@@ -2,23 +2,23 @@ import UIKit
 
 class PresentedNavigationController: UINavigationController {
 
-    override func encodeRestorableStateWithCoder(coder: NSCoder) {
+    override func encodeRestorableState(with coder: NSCoder) {
 
         // Call extension to store data for popover restoration
         encodePopoverStateWithCoder(coder)
-        super.encodeRestorableStateWithCoder(coder)
+        super.encodeRestorableState(with: coder)
     }
 
-    override func decodeRestorableStateWithCoder(coder: NSCoder) {
+    override func decodeRestorableState(with coder: NSCoder) {
 
         // Call extension to restore data for popover restoration (must be done before call to super)
         decodePopoverStateWithCoder(coder)
-        super.decodeRestorableStateWithCoder(coder)
+        super.decodeRestorableState(with: coder)
     }
 
 
     // When the navigation controller appears, update its Done-button
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
 
@@ -28,15 +28,15 @@ class PresentedNavigationController: UINavigationController {
     }
 
     // Add or remove a Done-button as right navigation item
-    func updateNavigationItemsForTraits(traits: UITraitCollection) {
+    func updateNavigationItemsForTraits(_ traits: UITraitCollection) {
 
         switch traits.horizontalSizeClass {
 
-        case .Regular:
+        case .regular:
              self.topViewController?.navigationItem.rightBarButtonItem = nil
 
-        case .Compact:
-            let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismissNavigationController:")
+        case .compact:
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(PresentedNavigationController.dismissNavigationController(_:)))
             self.topViewController?.navigationItem.rightBarButtonItem = doneButton
 
         default:
@@ -45,10 +45,10 @@ class PresentedNavigationController: UINavigationController {
     }
 
     // Handler for Done-button to dismiss the navigation controller
-    func dismissNavigationController(sender: AnyObject?) {
+    func dismissNavigationController(_ sender: AnyObject?) {
 
         if let presenter = self.presentingViewController {
-            presenter.dismissViewControllerAnimated(true, completion: nil)
+            presenter.dismiss(animated: true, completion: nil)
         }
     }
 }
