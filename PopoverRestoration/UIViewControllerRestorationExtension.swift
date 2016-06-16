@@ -30,11 +30,8 @@ extension PopoverRestorationDelegate {
 }
 
 
-// Keys for encoding of popoverPresentationController's configuration
+// Key for encoding of popoverPresentationController's configuration
 private let keySourceViewController = "popoverRestorationSourceViewController"
-private let keySourceView = "popoverRestorationSourceView"
-private let keySourceRect = "popoverRestorationSourceRect"
-private let keyArrowDirections = "popoverRestorationPermittedArrowDirections"
 
 
 extension UIViewController {
@@ -42,19 +39,13 @@ extension UIViewController {
     func encodePopoverState(with coder: NSCoder) {
 
         if let pc = presentingViewController as? PopoverRestorationDelegate {
-            if let sourceView = pc.popoverSourceView() {
+            if (pc.popoverSourceView()) != nil {
 
                 // Store a reference to the presenting view controller
                 coder.encode(presentingViewController, forKey: keySourceViewController)
-
-                // Store configuration of the popoverPresentationController
-                coder.encode(sourceView, forKey:keySourceView)
-                coder.encode(NSValue(cgRect: pc.popoverSourceRect()), forKey: keySourceRect)
-                coder.encode(Int(pc.popoverArrowDirection().rawValue), forKey: keyArrowDirections)
             }
         }
     }
-
 
     func decodePopoverState(with coder: NSCoder) {
 

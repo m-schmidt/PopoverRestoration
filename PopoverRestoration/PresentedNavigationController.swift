@@ -16,7 +16,6 @@ class PresentedNavigationController: UINavigationController {
         super.decodeRestorableState(with: coder)
     }
 
-
     // When the navigation controller appears, update its Done-button
     override func viewWillAppear(_ animated: Bool) {
 
