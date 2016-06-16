@@ -5,14 +5,14 @@ class PresentedNavigationController: UINavigationController {
     override func encodeRestorableState(with coder: NSCoder) {
 
         // Call extension to store data for popover restoration
-        encodePopoverStateWithCoder(coder)
+        encodePopoverState(with: coder)
         super.encodeRestorableState(with: coder)
     }
 
     override func decodeRestorableState(with coder: NSCoder) {
 
         // Call extension to restore data for popover restoration (must be done before call to super)
-        decodePopoverStateWithCoder(coder)
+        decodePopoverState(with: coder)
         super.decodeRestorableState(with: coder)
     }
 

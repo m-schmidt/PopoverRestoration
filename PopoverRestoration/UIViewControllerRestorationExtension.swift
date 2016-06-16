@@ -39,7 +39,7 @@ private let keyArrowDirections = "popoverRestorationPermittedArrowDirections"
 
 extension UIViewController {
 
-    func encodePopoverStateWithCoder(_ coder: NSCoder) {
+    func encodePopoverState(with coder: NSCoder) {
 
         if let pc = presentingViewController as? PopoverRestorationDelegate {
             if let sourceView = pc.popoverSourceView() {
@@ -56,7 +56,7 @@ extension UIViewController {
     }
 
 
-    func decodePopoverStateWithCoder(_ coder: NSCoder) {
+    func decodePopoverState(with coder: NSCoder) {
 
         if let sourceViewController = coder.decodeObject(forKey: keySourceViewController) as? PopoverRestorationDelegate {
             if let sourceView = sourceViewController.popoverSourceView() {
