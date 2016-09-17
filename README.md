@@ -5,4 +5,4 @@ The presented view controllers adapt to changes of the size class, i.e. when swi
 
 The presented view controller completely saves its state, such that state restoration works in all situations.
 
-The project is tested with iOS 9.1.
+The project is tested with iOS 10.0.
