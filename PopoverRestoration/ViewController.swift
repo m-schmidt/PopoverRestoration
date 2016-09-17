@@ -7,18 +7,18 @@ class ViewController: UIViewController, PopoverRestorationDelegate {
 
 
     // Catch segues to the popover
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "popoverSegue" {
 
             // Define a correct sourceRect to center the popover's anchor
-            if let pc = segue.destinationViewController.presentationController as? UIPopoverPresentationController {
+            if let pc = segue.destination.presentationController as? UIPopoverPresentationController {
                 pc.sourceRect = pc.sourceView!.bounds
                 pc.delegate = self
             }
 
             // Update the Done-button state of a presented navigation controller
-            if let nc = segue.destinationViewController as? PresentedNavigationController {
+            if let nc = segue.destination as? PresentedNavigationController {
                 nc.updateNavigationItemsForTraits(self.traitCollection);
             }
         }

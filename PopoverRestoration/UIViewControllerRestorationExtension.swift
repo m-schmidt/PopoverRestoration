@@ -60,16 +60,16 @@ extension UIViewController {
 
                 if let pc = presentationController as? UIPopoverPresentationController {
 
+                    // Enforce layout to place sourceView at correct location
+                    if let svc = sourceViewController as? UIViewController {
+                        svc.view.layoutIfNeeded()
+                    }
+
                     // Restore configuration for popoverPresentationController
                     pc.delegate = sourceViewController
                     pc.sourceView = sourceView
                     pc.sourceRect = sourceViewController.popoverSourceRect()
                     pc.permittedArrowDirections = sourceViewController.popoverArrowDirection()
-
-                    // Enforce layout to place sourceView at correct location
-                    if let svc = sourceViewController as? UIViewController {
-                        svc.view.layoutIfNeeded()
-                    }
                 }
 
                 // Revert to original style
