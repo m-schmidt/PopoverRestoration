@@ -6,7 +6,7 @@ import UIKit
 
 
 // Protocol for view controllers that want to present restorable popovers
-protocol PopoverRestorationDelegate : UIPopoverPresentationControllerDelegate {
+protocol PopoverRestorationDelegate: UIPopoverPresentationControllerDelegate {
 
     // The source view and rectangle that presents the popover
     func popoverSourceView() -> UIView?

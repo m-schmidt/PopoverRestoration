@@ -1,4 +1,7 @@
+// PresentedNavigationController.swift
+
 import UIKit
+
 
 class PresentedNavigationController: UINavigationController {
 
@@ -35,7 +38,7 @@ class PresentedNavigationController: UINavigationController {
              self.topViewController?.navigationItem.rightBarButtonItem = nil
 
         case .compact:
-            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(PresentedNavigationController.dismissNavigationController(_:)))
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(PresentedNavigationController.dismissNavigationController(_: )))
             self.topViewController?.navigationItem.rightBarButtonItem = doneButton
 
         default:
@@ -51,4 +54,3 @@ class PresentedNavigationController: UINavigationController {
         }
     }
 }
-
