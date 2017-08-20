@@ -47,7 +47,7 @@ class PresentedNavigationController: UINavigationController {
     }
 
     // Handler for Done-button to dismiss the navigation controller
-    func dismissNavigationController(_ sender: AnyObject?) {
+    @objc func dismissNavigationController(_ sender: AnyObject?) {
 
         if let presenter = self.presentingViewController {
             presenter.dismiss(animated: true, completion: nil)
